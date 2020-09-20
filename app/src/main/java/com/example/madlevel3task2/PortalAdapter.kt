@@ -6,8 +6,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.item_poral.view.*
 
-class PortalAdapter(private val portals: List<Portal>) :
-    RecyclerView.Adapter<PortalAdapter.ViewHolder>() {
+class PortalAdapter(private val portals: List<Portal>, val clickListener: (Portal) -> Unit) :
+    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PortalAdapter.ViewHolder {
         return ViewHolder(
@@ -15,8 +15,8 @@ class PortalAdapter(private val portals: List<Portal>) :
         )
     }
 
-    override fun onBindViewHolder(holder: PortalAdapter.ViewHolder, position: Int) {
-        holder.databind(portals[position])
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        (holder as ViewHolder).databind(portals[position], clickListener)
     }
 
     override fun getItemCount(): Int {
@@ -27,9 +27,10 @@ class PortalAdapter(private val portals: List<Portal>) :
      * Bind the item view to the data model
      */
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun databind(portal: Portal) {
+        fun databind(portal: Portal, clickListener: (Portal) -> Unit) {
             itemView.txtViewPotalTitle.text = portal.portalTitle
             itemView.txtViewPortalLink.text = portal.portalText
+            itemView.setOnClickListener { clickListener(portal) }
         }
     }
 }

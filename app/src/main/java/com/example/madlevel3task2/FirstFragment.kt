@@ -1,5 +1,7 @@
 package com.example.madlevel3task2
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -15,7 +17,12 @@ import kotlinx.android.synthetic.main.fragment_first.*
  */
 class FirstFragment : Fragment() {
     private val portals = arrayListOf<Portal>()
-    private val portalAdapter = PortalAdapter(portals)
+    private val portalAdapter = PortalAdapter(portals) { portalItem: Portal ->
+        val uri = portalItem.portalText;
+        val intent = Intent(Intent(Intent.ACTION_VIEW));
+        intent.data = Uri.parse(uri)
+        startActivity(intent)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
