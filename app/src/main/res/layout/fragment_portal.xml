@@ -5,24 +5,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SecondFragment">
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/txtViewTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
+        android:autofillHints=""
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/txtViewUrl"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:autofillHints="">
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/txtFieldPortalTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
             android:hint="@string/txt_input_hint_title" />
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
