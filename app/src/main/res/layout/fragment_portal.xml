@@ -5,23 +5,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SecondFragment">
-
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/txtViewTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
-        android:hint="@string/txt_input_hint_title"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/txtViewUrl"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:autofillHints="" />
+        android:autofillHints="">
 
-    <EditText
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtFieldPortalTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/txt_input_hint_title" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/txtViewUrl"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -29,14 +33,21 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="528dp"
         android:ems="10"
-        android:hint="@string/txt_input_hint_url"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/btnAddPortal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtViewTitle"
-        app:layout_constraintVertical_bias="0.196" />
+        app:layout_constraintVertical_bias="0.196">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtFieldPortalUrl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/txt_input_hint_url" />
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <Button
         android:id="@+id/btnAddPortal"
@@ -51,4 +62,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
